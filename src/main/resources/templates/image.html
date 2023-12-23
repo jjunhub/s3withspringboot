@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>이미지 및 URL 표시</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #343a40;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .image-container, .url-container {
+            margin: 15px;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .image-container img {
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+        }
+
+        .url-container p {
+            color: #007bff;
+            word-wrap: break-word;
+        }
+
+        .url-container a {
+            color: #007bff;
+            text-decoration: none; /* 링크 밑줄 제거 */
+        }
+
+        .url-container a:hover {
+            text-decoration: underline; /* 마우스 오버시 밑줄 표시 */
+        }
+    </style>
+</head>
+<body>
+<h1> 이미지에 대한 URL이 생성되었습니다! </h1>
+
+<div class="container">
+    <div class="image-container">
+        <img th:src="${imageUrl}" alt="이미지"/>
+    </div>
+
+    <div class="url-container">
+        <p>이미지 URL: <a th:href="${imageUrl}" th:text="${imageUrl}" target="_blank">이미지 링크</a></p>
+    </div>
+</div>
+</body>
+</html>
